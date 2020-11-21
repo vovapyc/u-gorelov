@@ -13,14 +13,13 @@ public class ResultModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private double ele;
+    private double lat;
+    private double lon;
     private String result;
 
-    protected ResultModel() {
-    }
-
-    public ResultModel(double ele, String result) {
-        this.ele = ele;
+    protected ResultModel(double lat, double lon, String result) {
+        this.lat = lat;
+        this.lon = lon;
         this.result = result;
     }
 
@@ -35,8 +34,12 @@ public class ResultModel {
         return id;
     }
 
-    public double getEle() {
-        return ele;
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLon() {
+        return lon;
     }
 
     public String getResult() {
