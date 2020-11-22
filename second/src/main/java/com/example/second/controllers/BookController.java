@@ -39,4 +39,19 @@ public class BookController {
     Optional<Book> getUser(@PathVariable Integer id) {
         return userRepository.findById(id);
     }
+
+    @PostMapping(path = "/{id}")
+    public @ResponseBody
+    String updateUser(@PathVariable Integer id, @RequestBody Book book) {
+        Optional<Book> b = userRepository.findById(id);
+
+        b.get().setAuthor(book.getAuthor());
+        b.get().setEdition(book.getEdition());
+        b.get().setName(book.getName());
+        b.get().setPageCount(book.getPageCount());
+        b.get().setPublication(book.getPublication());
+
+        userRepository.save(b.get());
+        return "Ok";
+    }
 }
