@@ -1,29 +1,42 @@
 package com.example.second.controllers;
 
-import com.example.second.repository.BookRepository;
 import com.example.second.models.Book;
+import com.example.second.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.util.Optional;
 
 @Controller
-@RequestMapping(path = "/demo")
+@RequestMapping(path = "/books")
 public class BookController {
     @Autowired
     private BookRepository userRepository;
 
-    @PostMapping(path = "/add")
+    @PostMapping(path = "/")
     public @ResponseBody
     String addNewBook(@RequestBody Book book) {
         userRepository.save(book);
         return "Saved";
     }
 
-    @GetMapping(path = "/all")
+    @GetMapping(path = "/")
     public @ResponseBody
     Iterable<Book> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public @ResponseBody
+    String deleteUser(@PathVariable Integer id) {
+        userRepository.deleteById(id);
+        return "Ok";
+    }
+
+    @GetMapping(path = "/{id}")
+    public @ResponseBody
+    Optional<Book> getUser(@PathVariable Integer id) {
+        return userRepository.findById(id);
     }
 }

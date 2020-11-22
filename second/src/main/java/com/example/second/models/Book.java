@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     private String author;
     private String name;
@@ -38,13 +38,14 @@ public class Book {
         this.pageCount = pageCount;
 
     }
-//    @Override
+
+    //    @Override
 //    public String toString() {
 //        return String.format(
 //                "Customer[id=%d, firstName='%s', lastName='%s']",
 //                id, name, author);
 //    }
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -55,12 +56,15 @@ public class Book {
     public String getName() {
         return name;
     }
+
     public LocalDate getPublication() {
         return publicationDate;
     }
+
     public String getEdition() {
         return edition;
     }
+
     public Integer getPageCount() {
         return pageCount;
     }
