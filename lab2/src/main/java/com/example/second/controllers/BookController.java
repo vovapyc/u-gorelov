@@ -14,14 +14,14 @@ public class BookController {
     @Autowired
     private BookRepository userRepository;
 
-    @PostMapping(path = "/")
+    @PostMapping(path = "")
     public @ResponseBody
     String addNewBook(@RequestBody Book book) {
         userRepository.save(book);
         return "Saved";
     }
 
-    @GetMapping(path = "/")
+    @GetMapping(path = "")
     public @ResponseBody
     Iterable<Book> getAllUsers() {
         return userRepository.findAll();
