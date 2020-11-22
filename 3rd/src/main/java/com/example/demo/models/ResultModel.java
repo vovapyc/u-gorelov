@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.models;
 
 
 import javax.persistence.Entity;
@@ -17,10 +17,14 @@ public class ResultModel {
     private double lon;
     private String result;
 
-    protected ResultModel(double lat, double lon, String result) {
+    public ResultModel(double lat, double lon, String result) {
         this.lat = lat;
         this.lon = lon;
         this.result = result;
+    }
+
+    public ResultModel() {
+
     }
 
 //    @Override

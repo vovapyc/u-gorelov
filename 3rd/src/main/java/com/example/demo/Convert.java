@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.models.Model;
+
 public class Convert {
 
     public static String latLonToString(Model model, double northlat, double eastlon, double westlon, double soutlat) {

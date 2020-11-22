@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import com.example.demo.models.Model;
+import com.example.demo.models.ResultModel;
+import com.example.demo.repository.ResultRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -24,7 +27,7 @@ public class DemoApplication {
     private static final Logger log = LoggerFactory.getLogger(DemoApplication.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
     private List<Model> parseCoordinates(String fileName) {
@@ -58,7 +61,7 @@ public class DemoApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(Repository repository) {
+    public CommandLineRunner demo(ResultRepository repository) {
         return (args) -> {
             List<Model> modelList = this.parseCoordinates("10.gpx");
 
