@@ -1,4 +1,4 @@
-package models;
+package com.example.second.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +11,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String author;
     private String name;
     private LocalDate publicationDate;
@@ -37,12 +38,12 @@ public class Book {
         this.pageCount = pageCount;
 
     }
-    @Override
-    public String toString() {
-        return String.format(
-                "Customer[id=%d, firstName='%s', lastName='%s']",
-                id, name, author);
-    }
+//    @Override
+//    public String toString() {
+//        return String.format(
+//                "Customer[id=%d, firstName='%s', lastName='%s']",
+//                id, name, author);
+//    }
     public Long getId() {
         return id;
     }
