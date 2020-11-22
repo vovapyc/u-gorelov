@@ -40,7 +40,7 @@ public class BookController {
         return userRepository.findById(id);
     }
 
-    @PostMapping(path = "/{id}")
+    @PutMapping(path = "/{id}")
     public @ResponseBody
     String updateUser(@PathVariable Integer id, @RequestBody Book book) {
         Optional<Book> b = userRepository.findById(id);
