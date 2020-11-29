@@ -27,13 +27,6 @@ public class ResultModel {
 
     }
 
-//    @Override
-//    public String toString() {
-//        return String.format(
-//                "Model[id=%d, lat='%s', lon='%s']",
-//                id, lat, lon);
-//    }
-
     public Long getId() {
         return id;
     }

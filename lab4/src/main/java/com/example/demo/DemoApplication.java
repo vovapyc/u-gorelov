@@ -63,6 +63,8 @@ public class DemoApplication {
     @Bean
     public CommandLineRunner demo(ResultRepository repository) {
         return (args) -> {
+            repository.deleteAll();
+
             List<Model> modelList = this.parseCoordinates("10.gpx");
 
             for (Model i : modelList) {
