@@ -14,7 +14,7 @@ public class Convert {
         double middleLatPoint = 0;
         double middleLonPoint = 0;
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 24; i++) {
             latSize = latSize / 2;
             lonSize = lonSize / 2;
 
@@ -23,27 +23,23 @@ public class Convert {
 
                 if (geoPoint.getLon() >= middleLonPoint) {
                     middleLonPoint += middleLonPoint;
+                    sb.append("3");
                 } else {
                     middleLonPoint -= middleLonPoint;
+                    sb.append("2");
                 }
             } else {
                 middleLatPoint -= latSize;
-            }
 
-
-            if (geoPoint.getLon() <= lonSize) {
-                sb.append("W");
-            } else {
-                {
-                    sb.append("E");
-                }
-
-                if (geoPoint.getLat() <= latSize) {
-                    sb.append("S");
+                if (geoPoint.getLon() >= middleLonPoint) {
+                    middleLonPoint += middleLonPoint;
+                    sb.append("1");
                 } else {
-                    sb.append("N");
+                    middleLonPoint -= middleLonPoint;
+                    sb.append("0");
                 }
             }
+
         }
         return sb.toString();
     }
